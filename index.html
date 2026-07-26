@@ -3,160 +3,174 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CypherX — Admin Dashboard</title>
-  <link rel="stylesheet" href="../css/admin.css">
+  <title>CypherX Studio — Creative & Digital Services</title>
+  <meta name="description" content="CypherX Studio — Professional web development, browser extensions, digital marketing, graphic design, video editing, SEO, content writing, and voiceover services.">
+  <meta name="keywords" content="web development, browser extension, digital marketing, graphic design, video editing, SEO, content writing, voiceover, CypherX Studio">
+  <meta property="og:title" content="CypherX Studio — Creative & Digital Services">
+  <meta property="og:description" content="Professional creative and digital services — from web development to voiceover.">
+  <meta name="theme-color" content="#c9a84c">
+  <link rel="stylesheet" href="../css/studio.css">
 </head>
-<body>
+<body data-page="studio">
 
-  <!-- LOGIN SCREEN -->
-  <div id="loginScreen" class="login-screen">
-    <div class="login-card">
-      <h2 class="login-title">Admin Login</h2>
-      <p class="login-sub">Enter master password to continue</p>
-      <div class="login-form">
-        <input type="password" id="loginPass" placeholder="Password (CypherX@2025)" autocomplete="off">
-        <button id="loginBtn" class="login-btn">Authenticate</button>
-        <div id="loginError" class="login-error">Invalid password</div>
+  <!-- ── NAVBAR ── -->
+  <header>
+    <nav class="navbar" id="navbar">
+      <a href="../index.html" class="nav-logo" aria-label="CypherX Stack Home">
+        <img src="../assets/logo.png" alt="CypherX Logo" width="36" height="36">
+        <span class="nav-logo-text">Cypher<span>X</span> Studio</span>
+      </a>
+      <ul class="nav-links" id="navLinks" role="menubar">
+        <li role="none"><a href="#about" role="menuitem">About</a></li>
+        <li role="none"><a href="#services" role="menuitem">Services</a></li>
+        <li role="none"><a href="#portfolio" role="menuitem">Portfolio</a></li>
+        <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
+        <li role="none"><a href="../cyber/index.html" class="nav-switch" role="menuitem">🔐 Cyber</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </nav>
+  </header>
+
+  <!-- ── HERO ── -->
+  <section class="hero" id="home">
+    <div class="hero-blob hero-blob-1" aria-hidden="true"></div>
+    <div class="hero-blob hero-blob-2" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-eyebrow">✦ Premium Creative Services</div>
+        <h1 class="hero-title">
+          We Make Your Brand<br>
+          Look <em id="heroTyping">Extraordinary</em>
+        </h1>
+        <p class="hero-subtitle">
+          From stunning websites to compelling content, professional voiceovers to viral campaigns — CypherX Studio delivers creative excellence that drives real results.
+        </p>
+        <div class="hero-btns">
+          <a href="#contact" class="btn-gold" id="heroContact">Start a Project →</a>
+          <a href="#services" class="btn-outline-navy" id="heroServices">Explore Services</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="hero-card-label">✦ What We Create</div>
+          <div class="hero-card-title">Full Digital Solutions</div>
+          <div class="hero-card-desc">From concept to completion — we handle everything.</div>
+          <div class="hero-services-pills" style="margin-top:0.8rem">
+            <span class="pill">Web Dev</span>
+            <span class="pill">Design</span>
+            <span class="pill">Marketing</span>
+            <span class="pill">Video</span>
+            <span class="pill">SEO</span>
+            <span class="pill">Voiceover</span>
+          </div>
+        </div>
+        <div class="hero-card" style="background:linear-gradient(135deg,#1a1a2e,#16213e);border-color:rgba(201,168,76,0.2)">
+          <div class="hero-card-label" style="color:#e8c96d">✦ Response Time</div>
+          <div class="hero-card-title" style="color:#fff">Within 24 Hours</div>
+          <div class="hero-card-desc" style="color:rgba(255,255,255,0.55)">Fast turnaround. Professional delivery. Always.</div>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- ADMIN DASHBOARD -->
-  <div id="adminApp" class="admin-wrapper" style="display:none;">
-    <aside class="sidebar">
-      <div class="sidebar-logo">
-        <div class="sidebar-logo-text">Cypher<span>X</span><div class="sidebar-badge">ADMIN</div></div>
+  <!-- ── ABOUT ── -->
+  <section id="about" style="background:#fff;padding:5rem 0">
+    <div class="section">
+      <div class="section-eyebrow">✦ About Us</div>
+      <h2 class="section-title reveal">The Studio Behind Your Success</h2>
+      <div class="about-section reveal">
+        <p>CypherX Studio is the creative arm of CypherX Stack — a team of passionate designers, developers, writers, and digital strategists who believe great work speaks for itself.</p>
+        <p>We partner with businesses of all sizes to create digital experiences that don't just look good — they perform. Our end-to-end approach means you get a unified creative vision from start to finish, without the agency markup.</p>
       </div>
-      <div class="sidebar-nav">
-        <div class="nav-item active" data-panel="overview"><span class="nav-item-icon">📊</span><span class="nav-item-label">Overview</span></div>
-        <div class="nav-item" data-panel="cyber"><span class="nav-item-icon">🔐</span><span class="nav-item-label">Cyber Division</span></div>
-        <div class="nav-item" data-panel="studio"><span class="nav-item-icon">✨</span><span class="nav-item-label">Studio Division</span></div>
-        <div class="nav-item" data-panel="chats"><span class="nav-item-icon">💬</span><span class="nav-item-label">Chat Support</span></div>
-        <div class="nav-item" data-panel="settings"><span class="nav-item-icon">⚙️</span><span class="nav-item-label">Settings</span></div>
-      </div>
-    </aside>
+    </div>
+  </section>
 
-    <main class="admin-main">
-      <header class="admin-topbar">
-        <div class="topbar-title" id="topbarTitle">Overview</div>
-        <div class="topbar-actions">
-          <button id="logoutBtn" class="btn-admin btn-ghost">Logout</button>
-        </div>
-      </header>
-
-      <div class="admin-content">
-        <!-- OVERVIEW PANEL -->
-        <div id="panel-overview" class="panel active">
-          <div class="overview-grid">
-            <div class="overview-card"><div class="overview-value" id="ov-totalChats">0</div><div><div class="overview-label">Total Chats</div></div></div>
-            <div class="overview-card"><div class="overview-value" id="ov-cyberServices">0</div><div><div class="overview-label">Cyber Services</div></div></div>
-            <div class="overview-card"><div class="overview-value" id="ov-studioServices">0</div><div><div class="overview-label">Studio Services</div></div></div>
-            <div class="overview-card"><div class="overview-value" id="ov-videos">0</div><div><div class="overview-label">Total Videos</div></div></div>
-          </div>
-        </div>
-
-        <!-- CYBER PANEL -->
-        <div id="panel-cyber" class="panel">
-          <div class="tab-group">
-            <button class="tab-btn active" data-group="cyber" data-tab="cyber-stats">Stats</button>
-            <button class="tab-btn" data-group="cyber" data-tab="cyber-services">Services</button>
-            <button class="tab-btn" data-group="cyber" data-tab="cyber-videos">Videos</button>
-          </div>
-          <!-- Cyber Stats -->
-          <div id="tab-cyber-stats" class="tab-content active" data-group="cyber">
-            <div class="admin-card">
-              <h3>Stats Section</h3>
-              <div class="stats-editor-grid">
-                <div class="stat-editor-card"><label>Projects</label><input type="text" id="cyber-stat-projects"></div>
-                <div class="stat-editor-card"><label>Labs</label><input type="text" id="cyber-stat-labs"></div>
-                <div class="stat-editor-card"><label>Hours</label><input type="text" id="cyber-stat-hours"></div>
-                <div class="stat-editor-card"><label>Tools</label><input type="text" id="cyber-stat-tools"></div>
-              </div>
-              <button id="saveCyberStats" class="btn-admin btn-teal">Save Cyber Stats</button>
-            </div>
-          </div>
-          <!-- Cyber Services -->
-          <div id="tab-cyber-services" class="tab-content" data-group="cyber">
-            <div class="admin-card">
-              <h3>Services Details</h3>
-              <div id="cyberServicesEditor" class="services-editor"></div>
-              <div style="margin-top:1rem;"><button id="saveCyberServices" class="btn-admin btn-teal">Save Services</button></div>
-            </div>
-          </div>
-          <!-- Cyber Videos -->
-          <div id="tab-cyber-videos" class="tab-content" data-group="cyber">
-            <div class="admin-card">
-              <h3>Demo Videos</h3>
-              <div id="cyberVideosEditor"></div>
-              <div style="margin-top:1rem;"><button id="saveCyberVideos" class="btn-admin btn-teal">Save Videos</button></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- STUDIO PANEL -->
-        <div id="panel-studio" class="panel">
-          <div class="tab-group">
-            <button class="tab-btn active" data-group="studio" data-tab="studio-stats">Stats</button>
-            <button class="tab-btn" data-group="studio" data-tab="studio-services">Services</button>
-            <button class="tab-btn" data-group="studio" data-tab="studio-videos">Videos</button>
-          </div>
-          <!-- Studio Stats -->
-          <div id="tab-studio-stats" class="tab-content active" data-group="studio">
-            <div class="admin-card">
-              <h3>Stats Section</h3>
-              <div class="stats-editor-grid">
-                <div class="stat-editor-card"><label>Clients</label><input type="text" id="studio-stat-clients"></div>
-                <div class="stat-editor-card"><label>Projects</label><input type="text" id="studio-stat-projects"></div>
-                <div class="stat-editor-card"><label>Satisfaction</label><input type="text" id="studio-stat-satisfaction"></div>
-                <div class="stat-editor-card"><label>Experience</label><input type="text" id="studio-stat-experience"></div>
-              </div>
-              <button id="saveStudioStats" class="btn-admin btn-teal">Save Studio Stats</button>
-            </div>
-          </div>
-          <!-- Studio Services -->
-          <div id="tab-studio-services" class="tab-content" data-group="studio">
-            <div class="admin-card">
-              <h3>Services Details</h3>
-              <div id="studioServicesEditor" class="services-editor"></div>
-              <div style="margin-top:1rem;"><button id="saveStudioServices" class="btn-admin btn-teal">Save Services</button></div>
-            </div>
-          </div>
-          <!-- Studio Videos -->
-          <div id="tab-studio-videos" class="tab-content" data-group="studio">
-            <div class="admin-card">
-              <h3>Portfolio Videos</h3>
-              <div id="studioVideosEditor"></div>
-              <div style="margin-top:1rem;"><button id="saveStudioVideos" class="btn-admin btn-teal">Save Videos</button></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- CHATS PANEL -->
-        <div id="panel-chats" class="panel">
-          <div class="admin-card">
-            <h3><span class="card-icon">💬</span> Chat History (<span id="chatCount">0</span>)</h3>
-            <div id="chatSessionsList"></div>
-          </div>
-        </div>
-
-        <!-- SETTINGS PANEL -->
-        <div id="panel-settings" class="panel">
-          <div class="admin-card">
-            <h3><span class="card-icon">⚙️</span> Reset & Danger Zone</h3>
-            <p style="margin-bottom:1rem;color:rgba(226,232,240,0.5)">Use these buttons to reset content to default state or clear logs.</p>
-            <div style="display:flex;gap:1rem;">
-              <button id="resetCyber" class="btn-admin btn-danger">Reset Cyber Content</button>
-              <button id="resetStudio" class="btn-admin btn-danger">Reset Studio Content</button>
-              <button id="clearChats" class="btn-admin btn-danger">Clear Chat History</button>
-            </div>
-          </div>
+  <!-- ── SERVICES ── -->
+  <section id="services">
+    <div class="section">
+      <div class="section-eyebrow">✦ Services</div>
+      <h2 class="section-title reveal">Everything You Need</h2>
+      <p class="section-desc reveal">Complete creative and digital services under one roof — quality guaranteed.</p>
+      <div class="services-grid" id="servicesGrid">
+        <div style="padding: 2rem; text-align: center; color: rgba(26,26,46,0.5); grid-column: 1 / -1;">
+          <div class="skeleton-loader" style="height: 150px; background: rgba(201,168,76,0.1); border-radius: 12px; animation: pulse 1.5s infinite;"></div>
         </div>
       </div>
-    </main>
-  </div>
+    </div>
+  </section>
 
-  <div id="toast" class="toast"></div>
+  <!-- ── PORTFOLIO VIDEOS ── -->
+  <section id="portfolio" style="background:#fff;padding:5rem 0">
+    <div class="section">
+      <div class="section-eyebrow">✦ Portfolio</div>
+      <h2 class="section-title reveal">Our Work in Action</h2>
+      <p class="section-desc reveal">See real projects, real quality, and real results from our creative team.</p>
+      <div class="videos-grid" id="videosGrid">
+        <div style="padding: 2rem; text-align: center; color: rgba(26,26,46,0.5); grid-column: 1 / -1;">
+          <div class="skeleton-loader" style="height: 200px; background: rgba(201,168,76,0.1); border-radius: 12px; animation: pulse 1.5s infinite;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <script src="../js/admin.js"></script>
+
+  <!-- ── PROCESS ── -->
+  <section id="process">
+    <div class="section">
+      <div class="section-eyebrow">✦ Process</div>
+      <h2 class="section-title reveal">How We Work</h2>
+      <div class="process-grid">
+        <div class="process-card reveal"><div class="process-num">1</div><h4>Discover</h4><p>We learn about your goals, audience, and vision in depth.</p></div>
+        <div class="process-card reveal"><div class="process-num">2</div><h4>Strategy</h4><p>We craft a tailored plan aligned to your business objectives.</p></div>
+        <div class="process-card reveal"><div class="process-num">3</div><h4>Create</h4><p>Our team executes with precision, creativity, and attention to detail.</p></div>
+        <div class="process-card reveal"><div class="process-num">4</div><h4>Deliver</h4><p>We deliver on time, review together, and refine until perfect.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact" style="background:#fff;padding:5rem 0">
+    <div class="section">
+      <div class="section-eyebrow">✦ Contact</div>
+      <h2 class="section-title reveal">Let's Create Something Amazing</h2>
+      <div class="contact-wrapper reveal">
+        <div class="contact-left">
+          <h3>Ready to Start Your Project?</h3>
+          <p>Tell us what you need and we'll get back to you within 24 hours with a personalized plan and quote.</p>
+          <a href="mailto:irauf091@gmail.com" class="contact-email-btn" id="studioEmailBtn">
+            ✉️ irauf091@gmail.com
+          </a>
+        </div>
+        <form class="contact-form" id="contactForm">
+          <input type="hidden" name="_captcha" value="false">
+          <div class="form-group">
+            <label for="cf-name">Your Name</label>
+            <input type="text" id="cf-name" name="name" placeholder="Jane Smith" required>
+          </div>
+          <div class="form-group">
+            <label for="cf-email">Email Address</label>
+            <input type="email" id="cf-email" name="email" placeholder="jane@company.com" required>
+          </div>
+          <div class="form-group">
+            <label for="cf-message">Project Details</label>
+            <textarea id="cf-message" name="message" placeholder="Tell us about your project, timeline, and goals..." required></textarea>
+          </div>
+          <button type="submit" class="form-submit" id="studioContactSubmit">Send Message →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="site-footer">
+    <p>© <span id="currentYear"></span> CypherX Stack — Studio Division &nbsp;|&nbsp; <a href="mailto:irauf091@gmail.com">irauf091@gmail.com</a> &nbsp;|&nbsp; <a href="../admin/index.html">Admin</a></p>
+    <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
+  </footer>
+
+  <!-- ── SCRIPTS ── -->
+  <script src="../js/studio.js"></script>
+  <script src="../js/ai-chat.js"></script>
 </body>
 </html>
