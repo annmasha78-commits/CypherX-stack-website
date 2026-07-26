@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root {
+  --cyber-teal: #00f5d4;
+  --cyber-cyan: #00d4ff;
+  --cyber-purple: #7b2ff7;
+  --studio-gold: #c9a84c;
+  --studio-rose: #e8637a;
+  --studio-cream: #faf8f5;
+  --dark: #050508;
+  --dark2: #0d0d1a;
+}
+
+html, body {
+  height: 100%;
+  background: var(--dark);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+}
+
+#particleCanvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.selector-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.brand-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  animation: fadeDown 0.8s ease forwards;
+}
+
+.brand-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 20px var(--cyber-teal));
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%,100%{ filter: drop-shadow(0 0 15px var(--cyber-teal)); }
+  50%{ filter: drop-shadow(0 0 35px var(--cyber-teal)) drop-shadow(0 0 70px var(--cyber-cyan)); }
+}
+
+.brand-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #fff;
+}
+.brand-name span { color: var(--cyber-teal); }
+
+.brand-tagline {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 300;
+  animation: fadeUp 0.9s 0.2s ease both;
+}
+
+.portals-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  width: 100%;
+  max-width: 860px;
+  animation: fadeUp 0.9s 0.4s ease both;
+}
+
+.portal-card {
+  position: relative;
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.portal-bg-effect {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.4s ease;
+}
+
+.cyber-portal {
+  background: rgba(0,245,212,0.04);
+  border: 1px solid rgba(0,245,212,0.2);
+  box-shadow: 0 0 30px rgba(0,245,212,0.06);
+}
+.cyber-portal:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 20px 60px rgba(0,245,212,0.2), 0 0 0 1px rgba(0,245,212,0.4);
+}
+.cyber-effect {
+  background: radial-gradient(ellipse at 50% 100%, rgba(0,245,212,0.12) 0%, transparent 70%);
+}
+
+.studio-portal {
+  background: rgba(201,168,76,0.05);
+  border: 1px solid rgba(201,168,76,0.25);
+  box-shadow: 0 0 30px rgba(201,168,76,0.06);
+}
+.studio-portal:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 20px 60px rgba(201,168,76,0.2), 0 0 0 1px rgba(201,168,76,0.4);
+}
+.studio-effect {
+  background: radial-gradient(ellipse at 50% 100%, rgba(201,168,76,0.12) 0%, transparent 70%);
+}
+
+.portal-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.portal-icon {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.portal-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  width: fit-content;
+}
+.cyber-portal .portal-badge {
+  background: rgba(0,245,212,0.1);
+  color: var(--cyber-teal);
+  border: 1px solid rgba(0,245,212,0.3);
+}
+.studio-portal .portal-badge {
+  background: rgba(201,168,76,0.1);
+  color: var(--studio-gold);
+  border: 1px solid rgba(201,168,76,0.3);
+}
+
+.portal-content h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.02em;
+}
+
+.portal-content p {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.6);
+}
+
+.portal-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
+}
+.portal-features li {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.55);
+  padding-left: 1rem;
+  position: relative;
+}
+.portal-features li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+}
+.cyber-portal .portal-features li::before { color: var(--cyber-teal); }
+.studio-portal .portal-features li::before { color: var(--studio-gold); }
+
+.portal-cta {
+  display: inline-block;
+  margin-top: 1.2rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: letter-spacing 0.3s ease;
+}
+.cyber-portal .portal-cta { color: var(--cyber-teal); }
+.studio-portal .portal-cta { color: var(--studio-gold); }
+.portal-card:hover .portal-cta { letter-spacing: 0.1em; }
+
+.footer-note {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.25);
+  animation: fadeUp 1s 0.6s ease both;
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 640px) {
+  html, body { overflow: auto; }
+  .portals-grid { grid-template-columns: 1fr; }
+  .brand-name { font-size: 1.6rem; }
+}

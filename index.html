@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CypherX — Admin Dashboard</title>
+  <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+
+  <!-- LOGIN SCREEN -->
+  <div id="loginScreen" class="login-screen">
+    <div class="login-card">
+      <h2 class="login-title">Admin Login</h2>
+      <p class="login-sub">Enter master password to continue</p>
+      <div class="login-form">
+        <input type="password" id="loginPass" placeholder="Password (CypherX@2025)" autocomplete="off">
+        <button id="loginBtn" class="login-btn">Authenticate</button>
+        <div id="loginError" class="login-error">Invalid password</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADMIN DASHBOARD -->
+  <div id="adminApp" class="admin-wrapper" style="display:none;">
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <div class="sidebar-logo-text">Cypher<span>X</span><div class="sidebar-badge">ADMIN</div></div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-item active" data-panel="overview"><span class="nav-item-icon">📊</span><span class="nav-item-label">Overview</span></div>
+        <div class="nav-item" data-panel="cyber"><span class="nav-item-icon">🔐</span><span class="nav-item-label">Cyber Division</span></div>
+        <div class="nav-item" data-panel="studio"><span class="nav-item-icon">✨</span><span class="nav-item-label">Studio Division</span></div>
+        <div class="nav-item" data-panel="chats"><span class="nav-item-icon">💬</span><span class="nav-item-label">Chat Support</span></div>
+        <div class="nav-item" data-panel="settings"><span class="nav-item-icon">⚙️</span><span class="nav-item-label">Settings</span></div>
+      </div>
+    </aside>
+
+    <main class="admin-main">
+      <header class="admin-topbar">
+        <div class="topbar-title" id="topbarTitle">Overview</div>
+        <div class="topbar-actions">
+          <button id="logoutBtn" class="btn-admin btn-ghost">Logout</button>
+        </div>
+      </header>
+
+      <div class="admin-content">
+        <!-- OVERVIEW PANEL -->
+        <div id="panel-overview" class="panel active">
+          <div class="overview-grid">
+            <div class="overview-card"><div class="overview-value" id="ov-totalChats">0</div><div><div class="overview-label">Total Chats</div></div></div>
+            <div class="overview-card"><div class="overview-value" id="ov-cyberServices">0</div><div><div class="overview-label">Cyber Services</div></div></div>
+            <div class="overview-card"><div class="overview-value" id="ov-studioServices">0</div><div><div class="overview-label">Studio Services</div></div></div>
+            <div class="overview-card"><div class="overview-value" id="ov-videos">0</div><div><div class="overview-label">Total Videos</div></div></div>
+          </div>
+        </div>
+
+        <!-- CYBER PANEL -->
+        <div id="panel-cyber" class="panel">
+          <div class="tab-group">
+            <button class="tab-btn active" data-group="cyber" data-tab="cyber-stats">Stats</button>
+            <button class="tab-btn" data-group="cyber" data-tab="cyber-services">Services</button>
+            <button class="tab-btn" data-group="cyber" data-tab="cyber-videos">Videos</button>
+          </div>
+          <!-- Cyber Stats -->
+          <div id="tab-cyber-stats" class="tab-content active" data-group="cyber">
+            <div class="admin-card">
+              <h3>Stats Section</h3>
+              <div class="stats-editor-grid">
+                <div class="stat-editor-card"><label>Projects</label><input type="text" id="cyber-stat-projects"></div>
+                <div class="stat-editor-card"><label>Labs</label><input type="text" id="cyber-stat-labs"></div>
+                <div class="stat-editor-card"><label>Hours</label><input type="text" id="cyber-stat-hours"></div>
+                <div class="stat-editor-card"><label>Tools</label><input type="text" id="cyber-stat-tools"></div>
+              </div>
+              <button id="saveCyberStats" class="btn-admin btn-teal">Save Cyber Stats</button>
+            </div>
+          </div>
+          <!-- Cyber Services -->
+          <div id="tab-cyber-services" class="tab-content" data-group="cyber">
+            <div class="admin-card">
+              <h3>Services Details</h3>
+              <div id="cyberServicesEditor" class="services-editor"></div>
+              <div style="margin-top:1rem;"><button id="saveCyberServices" class="btn-admin btn-teal">Save Services</button></div>
+            </div>
+          </div>
+          <!-- Cyber Videos -->
+          <div id="tab-cyber-videos" class="tab-content" data-group="cyber">
+            <div class="admin-card">
+              <h3>Demo Videos</h3>
+              <div id="cyberVideosEditor"></div>
+              <div style="margin-top:1rem;"><button id="saveCyberVideos" class="btn-admin btn-teal">Save Videos</button></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STUDIO PANEL -->
+        <div id="panel-studio" class="panel">
+          <div class="tab-group">
+            <button class="tab-btn active" data-group="studio" data-tab="studio-stats">Stats</button>
+            <button class="tab-btn" data-group="studio" data-tab="studio-services">Services</button>
+            <button class="tab-btn" data-group="studio" data-tab="studio-videos">Videos</button>
+          </div>
+          <!-- Studio Stats -->
+          <div id="tab-studio-stats" class="tab-content active" data-group="studio">
+            <div class="admin-card">
+              <h3>Stats Section</h3>
+              <div class="stats-editor-grid">
+                <div class="stat-editor-card"><label>Clients</label><input type="text" id="studio-stat-clients"></div>
+                <div class="stat-editor-card"><label>Projects</label><input type="text" id="studio-stat-projects"></div>
+                <div class="stat-editor-card"><label>Satisfaction</label><input type="text" id="studio-stat-satisfaction"></div>
+                <div class="stat-editor-card"><label>Experience</label><input type="text" id="studio-stat-experience"></div>
+              </div>
+              <button id="saveStudioStats" class="btn-admin btn-teal">Save Studio Stats</button>
+            </div>
+          </div>
+          <!-- Studio Services -->
+          <div id="tab-studio-services" class="tab-content" data-group="studio">
+            <div class="admin-card">
+              <h3>Services Details</h3>
+              <div id="studioServicesEditor" class="services-editor"></div>
+              <div style="margin-top:1rem;"><button id="saveStudioServices" class="btn-admin btn-teal">Save Services</button></div>
+            </div>
+          </div>
+          <!-- Studio Videos -->
+          <div id="tab-studio-videos" class="tab-content" data-group="studio">
+            <div class="admin-card">
+              <h3>Portfolio Videos</h3>
+              <div id="studioVideosEditor"></div>
+              <div style="margin-top:1rem;"><button id="saveStudioVideos" class="btn-admin btn-teal">Save Videos</button></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHATS PANEL -->
+        <div id="panel-chats" class="panel">
+          <div class="admin-card">
+            <h3><span class="card-icon">💬</span> Chat History (<span id="chatCount">0</span>)</h3>
+            <div id="chatSessionsList"></div>
+          </div>
+        </div>
+
+        <!-- SETTINGS PANEL -->
+        <div id="panel-settings" class="panel">
+          <div class="admin-card">
+            <h3><span class="card-icon">⚙️</span> Reset & Danger Zone</h3>
+            <p style="margin-bottom:1rem;color:rgba(226,232,240,0.5)">Use these buttons to reset content to default state or clear logs.</p>
+            <div style="display:flex;gap:1rem;">
+              <button id="resetCyber" class="btn-admin btn-danger">Reset Cyber Content</button>
+              <button id="resetStudio" class="btn-admin btn-danger">Reset Studio Content</button>
+              <button id="clearChats" class="btn-admin btn-danger">Clear Chat History</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="../js/admin.js"></script>
+</body>
+</html>
